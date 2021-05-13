@@ -1,0 +1,85 @@
+.jumboCor{
+    background: linear-gradient(324deg, rgb(199, 76, 4) 0%, rgb(248, 130, 64) 45%, rgb(199, 76, 4) 100%);
+    color: white;
+    padding-top: 60px;
+    padding-bottom: 5px;
+}
+
+.jumboCor2{
+    background: linear-gradient(324deg, rgb(199, 76, 4) 0%, rgb(248, 130, 64) 45%, rgb(199, 76, 4) 100%);
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 40px;
+}
+
+.fontBold{
+    font-weight: bold;
+}
+
+.carousel-inner{
+    width:1140px; 
+    height:500px;
+}
+
+h3 {
+    text-shadow: 1px 1px 1px black;
+}
+
+h3 span { 
+    background-color:#11111142;
+    box-shadow: 4px 5px 6px 1px rgb(0 0 0 / 54%);
+}
+
+h1{
+    text-shadow: 1px 1px 1px black;
+}
+
+#cardBack{
+    background-color: #f8844093;
+    padding: 20px;
+    box-shadow: 4px 5px 6px 1px rgb(0 0 0 / 54%);
+}
+
+#size{
+    width: 250px;
+    height: 180px;
+    border: 2px solid #53744E;
+    box-shadow: 4px 5px 6px 1px rgb(0 0 0 / 54%);
+}
+
+.card-text{
+    font-weight: bold;
+}
+
+button{
+    background-color: #53744E;
+    color: white;
+    width: 100px;
+    height: 35px;
+}
+
+button:focus, 
+button:hover {
+    color: #F88240;
+    font-weight: bold;
+    }
+
+#backH2 {
+    text-align: center;
+    background-color: #f8844093;
+    width: 900px;
+    height: 40px;
+    box-shadow: 4px 5px 6px 1px rgb(0 0 0 / 54%);
+}
+
+
+
+#cardBack2{
+    border: 2px solid #53744E;
+    box-shadow: 4px 5px 6px 1px rgb(0 0 0 / 54%);
+}
+
+.wrapper {
+    text-align: center;
+}
+

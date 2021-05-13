@@ -1,0 +1,115 @@
+<div class="container-fluid">
+
+  <div class="row bg-secondary">
+    <div class="col-md-12 text-white">
+
+      <a routerLink='/inicio' class="text-white text-left">
+        <i class="fa fa-angle-double-left" aria-hidden="true"></i> Início
+      </a>
+
+      <h1 class="fs-54 text-center mt-5">Produtos</h1>
+      <h5 class="fs-18 text-center">Veja aqui todos os produtos cadastrados ou cadastre um novo</h5>
+
+      <div class="form-group">
+        <div class="row d-flex justify-content-center mt-2 mb-5">
+          <div class="col-md-3">
+            <input [(ngModel)]='produto.nome' type="text" class="form-control" id="nome"
+              placeholder="Digite o nome do produto">
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center mt-2 mb-5">
+          <div class="col-md-3">
+            <input [(ngModel)]='produto.descricao' type="text" class="form-control" id="descricao"
+              placeholder="Digite a descrição">
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center mt-2 mb-5">
+          <div class="col-md-3">
+            <input [(ngModel)]='produto.marca' type="text" class="form-control" id="marca" placeholder="Digite a marca">
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center mt-2 mb-5">
+          <div class="col-md-3">
+            <input [(ngModel)]='produto.qtdEstoque' type="text" class="form-control" id="qtdEstoque"
+              placeholder="Digite a quantidade">
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center mt-2 mb-5">
+          <div class="col-md-3">
+            <input [(ngModel)]='produto.peso' type="text" class="form-control" id="peso" placeholder="Digite o peso">
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center mt-2 mb-5">
+          <div class="col-md-3">
+            <input [(ngModel)]='produto.preco' type="text" class="form-control" id="preco" placeholder="Digite o preço">
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center mt-2 mb-5">
+          <div class="col-md-3">
+            <input [(ngModel)]='produto.imagem' type="text" class="form-control" id="imagem"
+              placeholder="Link da imagem">
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center mt-2 mb-5">
+          <div class="col-md-3">
+            <label for="tema">Escolha uma categoria ou <a routerLink='/categoria' data-dismiss="modal">cadastre uma
+                nova</a>:
+            </label>
+            <select name="categoria" id="categoria" class="form-control" [(ngModel)]='idCategoria'
+              (change)='findByIdCategoria()'>
+              <option *ngFor='let item of listaCategorias' value="{{item.id}}">{{item.nome}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center mb-4">
+        <button class="btn btn-light" (click)='cadastrarProduto()'>Cadastrar Produto</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container">
+
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <h2 class="text-center">Todos os produtos</h2>
+      </div>
+    </div>
+
+    <div class="row mt-3 mb-5 d-flex justify-content-center">
+      <div class="col-md-6">
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Descrição</th>
+              <th scope="col" class="text-right">Modificações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let item of listaProdutos'>
+              <th>{{item.id}}</th>
+              <td>{{item.nome}}</td>
+              <td class="d-flex justify-content-end">
+                <button class="btn btn-info mr-3" [routerLink]="['/produtos-edit', item.id]">Editar</button>
+                <button class="btn btn-danger" [routerLink]="['/produtos-delete', item.id]">Apagar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+  </div>

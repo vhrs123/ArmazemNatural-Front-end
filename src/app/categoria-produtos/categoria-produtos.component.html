@@ -1,0 +1,26 @@
+<div class="container mt-5 mb-5">
+  <div *ngFor='let cat of listaCategoria' class="row mt-5">
+    <div *ngFor='let prod of cat.produto' class="col-md" >
+          <div  class="card-deck">
+            <div class="card p-3 text-center" id="cardBack">
+              <div class="row d-flex justify-content-center">
+                <img class="card-img-top image-fluid" src="{{prod.imagem}}"
+                  alt="Imagem de capa do card" id="size">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{prod.nome}}</h5>
+                <p class="card-text">R$ {{prod.preco}}</p>
+                <div class="row justify-content-center">
+                  <button class="mr-2 btn">Carrinho</button>
+                  <button class="btn">Comprar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+      
+      
+    </div>
+  </div>
+</div>
+

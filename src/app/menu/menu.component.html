@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style type="text/css">
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .navbar-light .navbar-nav .active>.nav-link,
+    .navbar-light .navbar-nav .nav-link.active,
+    .navbar-light .navbar-nav .nav-link.show,
+    .navbar-light .navbar-nav .show>.nav-link {
+        color: #F88240;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: #FFFFFF;
+    }
+
+    .navbar-light .navbar-nav .nav-link:focus,
+    .navbar-light .navbar-nav .nav-link:hover {
+        color: #F88240;
+    }
+
+    .input-icons i {
+        position: absolute;
+    }
+
+    .input-icons {
+        width: 100%;
+        margin-bottom: 1px;
+    }
+
+    .input-icons {
+        padding: 10px;
+        color: #8a8888;
+        min-width: 50px;
+    }
+    .input-field {
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+</style>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <img src="../../assets/img/Logo caixinha_Prancheta 1 cópia.png" alt="Logo"
+                width="57px" class="img-fluid rounded-circle">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+                aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                <ul class="navbar-nav mr-auto d-flex align-items-end">
+                    <li class="nav-item active">
+                        <a routerLink='/home' class="nav-link m-0" >Home <span class="sr-only">(página atual)</span></a>
+                    </li>
+                    <li *ngIf='authService.categoriasOn()' class="nav-item dropdown">
+                        <a  class="nav-link dropdown-toggle m-0"  id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categorias
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a *ngFor='let cat of listaCategorias' class="dropdown-item" [routerLink]="['/categoria-produtos', cat.nome]">{{cat.nome}}</a>
+                          
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" >Todos os Produtos</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  m-0" routerLink="/blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  m-0" routerLink="/armazem">Quem Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  m-0" routerLink="/contato">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  m-0" href="#">Seja um Fornecedor</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <div class="input-icons">
+                        <i class="fas fa-search" id="search"></i>
+                        <input class="form-control mr-sm-2 input-field" type="search" placeholder="Pesquisar"
+                            aria-label="Pesquisar">
+                    </div>
+                </form>
+                <ul class="navbar-nav ml-auto d-flex align-items-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle m-0" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user-circle fa-lg"></i> Login
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a *ngIf='authService.adm()' class="dropdown-item" routerLink="/categoria">Cadastrar Categoria</a>
+                            <a *ngIf='authService.adm()' class="dropdown-item" routerLink="/produtos">Cadastrar Produto</a>
+                             <a *ngIf='authService.logado() == false' class="dropdown-item" routerLink="/entrar">Faça o login</a>
+                            <a *ngIf='authService.logado() == false' class="dropdown-item" routerLink="/cadastrar">Cadastre-se</a>
+                            <div class="dropdown-divider"></div>
+                            <a *ngIf='authService.logado()' class="dropdown-item" href="#">Sair</a>
+                        </div>
+                    </li>
+                    <li class="nav-item pl-3">
+                        <a id="bag"><i class="fas fa-shopping-bag fa-lg"></i> 0</a> 
+                     </li>
+                    <li class="nav-item pl-3">
+                       <a *ngIf='authService.logado()' (click)="sair()" class="m-0"><i class="fas fa-sign-out-alt fa-lg" id="sair" aria-hidden="true"></i></a> 
+                    </li>
+                </ul>
+            </div>
+        </nav>

@@ -1,0 +1,23 @@
+.jumboCor{
+    background: linear-gradient(324deg, rgb(199, 76, 4) 0%, rgb(248, 130, 64) 45%, rgb(199, 76, 4) 100%);
+    color: white;
+    padding-top: 60px;
+    padding-bottom: 5px;
+}
+
+button{
+    background-color: #53744E;
+    color: white;
+    width: 100px;
+    height: 35px;
+}
+
+button:focus, 
+button:hover {
+    color: #F88240;
+    font-weight: bold;
+    }
+
+.wrapper {
+    text-align: center;
+}
